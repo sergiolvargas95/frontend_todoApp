@@ -1,0 +1,19 @@
+.tasks-container {
+    height: 95vh;
+    width: 80%;
+    border-radius: 2%;
+    border: 2px solid var(--border-color);
+    background-color: var(--background-color-secondary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+.tasks-filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
