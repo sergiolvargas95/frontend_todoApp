@@ -1,10 +1,14 @@
 button {
+    width: 13rem;
+    min-width: 5rem;
     padding: 10px 20px;
     border: 1px solid #ccc;
     background-color: #d6e0d6;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
+    background-color: var(--bg-light); /* Verde claro para inactivos */
+    color: #2D2D2D;
     transition: background 0.3s, color 0.3s;
   }
 
@@ -21,7 +25,7 @@ button {
   }
   
   button.active {
-    background-color: #1b5e20; /* Verde oscuro */
+    background-color: var(--primary-color);
     color: white;
-    border-color: #1b5e20;
+    border-color: var(--primary-color-dark);
   }

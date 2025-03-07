@@ -9,5 +9,5 @@ import { TasksFilterComponent } from "../../components/tasks-filter/tasks-filter
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  
+  $title = 'My Tasks';
 }

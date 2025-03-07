@@ -4,9 +4,17 @@
     border-radius: 2%;
     border: 2px solid var(--border-color);
     background-color: var(--background-color-secondary);
-
     display: flex;
     justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+.header-tasks {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 
     margin: 0 auto;
@@ -16,4 +24,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5rem 0 2rem 0;
 }
