@@ -1,13 +1,13 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'http://todoapp.local/';
   private loggedIn = signal<boolean>(false);
 
   constructor( private http: HttpClient) { 
@@ -20,7 +20,7 @@ export class AuthService {
       password: user.password
     };
 
-    return this.http.post(`${this.url}login`, authData, { observe: 'response' }).pipe(
+    return this.http.post(`${environment.apiUrl}/login`, authData, { observe: 'response' }).pipe(
       map(resp => {
         const token = resp.headers.get('Authorization');
         if (token) {
@@ -55,7 +55,7 @@ export class AuthService {
       confirmPassword: user.confirmPassword
     }
 
-    return this.http.post(`${this.url}register`, authData);
+    return this.http.post(`${environment.apiUrl}/register`, authData);
   }
 
   logout() {
