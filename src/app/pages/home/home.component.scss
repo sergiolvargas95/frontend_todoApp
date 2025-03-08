@@ -1,0 +1,38 @@
+.tasks-container {
+    height: 95vh;
+    width: 80%;
+    border-radius: 2%;
+    border: 2px solid var(--border-color);
+    background-color: var(--background-color-secondary);
+    display: block;
+    align-items: start;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.header-tasks {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+
+    .my-btn-success {
+        width: 8rem;
+        min-width: 5rem;
+        background-color: var(--primary-color);
+        color: var(--bg-light);
+        font-size: 1.1rem;
+        padding: 10px;
+        span {
+        }
+    }
+}
+
+.tasks-filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0 4rem 0;
+}

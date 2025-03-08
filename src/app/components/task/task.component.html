@@ -1,0 +1,12 @@
+@for (todo of todos; track $index) {
+<div class="task-container container mb-2" [class.completed]="todo.completed">
+    <div class="row">
+        <div class="col task-checkbox">
+        <input type="checkbox" [name]="'task-' + $index"  [(ngModel)]="todo.completed">
+        </div>
+        <label for="task-completed" class="col task-title">{{ todo.title }}</label>
+        <div class="col task-details">{{ todo.priority }}</div>
+        <div class="col task-status">{{ todo.status }}</div>
+    </div>
+</div>          
+}

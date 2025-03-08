@@ -1,0 +1,31 @@
+button {
+    width: 13rem;
+    min-width: 5rem;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #d6e0d6;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--bg-light); /* Verde claro para inactivos */
+    color: #2D2D2D;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  button:first-child {
+    border-radius: 0.375rem 0px 0px 0.375rem;
+  }
+
+  button:nth-child(2) {
+    border-radius: 0px 0px 0px 0px;
+  }
+
+  button:last-child {
+    border-radius: 0px 0.375rem 0.375rem 0px;
+  }
+  
+  button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color-dark);
+  }
