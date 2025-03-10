@@ -1,5 +1,5 @@
 <button 
-    *ngFor="let filter of ['Today', 'Pending', 'Overdue']"
+    *ngFor="let filter of ['Today', 'Pending', 'Archived']"
     [ngClass]="{'active': selectedFilter === filter}"
     (click)="setFilter(filter)">
     {{ filter }}

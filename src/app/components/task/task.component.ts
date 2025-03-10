@@ -16,7 +16,8 @@ export class TaskComponent {
   }
 
   getAllTodos() {
-    this.todo.getTodos().subscribe( (resp:any) => {
+    let status: string[] = ['open', 'in_progress'];
+    this.todo.getTodos(status).subscribe( (resp:any) => {
       this.todos = resp;
     }); 
   }
