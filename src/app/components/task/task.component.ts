@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TodosService } from '../../services/todos/todos.service';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -10,15 +11,20 @@ import { FormsModule } from '@angular/forms';
 })
 export class TaskComponent {
   todos: any[] = [];
+  tasks$: Observable<any[]> = new Observable();
 
-  constructor( private todo: TodosService  ) {
+  constructor( private todoService: TodosService  ) {}
+
+  ngOnInit() {
+    this.tasks$ = this.todoService.tasks$;
+    this.tasks$.subscribe(tasks => {
+      this.todos = tasks; 
+    })
     this.getAllTodos();
   }
 
   getAllTodos() {
     let status: string[] = ['open', 'in_progress'];
-    this.todo.getTodos(status).subscribe( (resp:any) => {
-      this.todos = resp;
-    }); 
+    this.todoService.getTodos(status);
   }
 }

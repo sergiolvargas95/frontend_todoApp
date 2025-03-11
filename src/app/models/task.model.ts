@@ -2,11 +2,7 @@ export class Task {
     title: string = '';
     description: string = '';
     priority: string = ''
-    completed: string = '';
-    created_at: string = '';
-    updated_at: string = '';
-    completed_at: string = '';
-    user_id: string = '';
+    completed: number = 0;
     category_id: string = ''
   }
   

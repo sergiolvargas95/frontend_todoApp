@@ -4,9 +4,85 @@
 
 <div class="header-tasks mb-3">
     <h1>{{ $title }}</h1>
-    <button class="btn my-btn-success" ><span>+</span> Add Task</button>
+    <!-- Botón para abrir el modal -->
+    <button class="btn my-btn-success" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+        <span>+</span> Add Task
+    </button>
 </div>
 
 <div class="tasks-container">
     <app-tasks-list></app-tasks-list>
+</div>
+
+<!-- Modal para agregar tarea -->
+<div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTaskModalLabel">New Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="taskForm" (submit)="addTask()">
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Title</label>
+                        <input type="text" 
+                                class="form-control" 
+                                formControlName="title"
+                                [class.is-invalid]="invalidTitle"
+                                required>
+                                <div class="invalid-feedback">
+                                    Enter a title
+                                </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDescription" class="form-label">Description</label>
+                        <textarea 
+                            class="form-control" 
+                            id="taskDescription"
+                            formControlName="description"
+                            rows="3"
+                            required>
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskPriority" class="form-label">priority</label>
+                        <select 
+                            class="form-select" 
+                            id="taskPriority" 
+                            [class.is-invalid]="invalidPriority"
+                            formControlName="priority"
+                            >
+                            <div class="invalid-feedback">
+                                Select a priority
+                            </div>
+                            <option value="" disabled selected>Select a priority</option>
+                            @for(priority of priorities; track $index) {    
+                                <option [value]="priority">{{ priority }}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskCategory" class="form-label">Category</label>
+                        <select class="form-select" 
+                                id="taskCategory"
+                                [class.is-invalid]="invalidCategory"
+                                formControlName="category_id">
+                                <div class="invalid-feedback">
+                                    Select a category
+                                </div>
+                            <option value="" disabled selected>Select a category</option>
+                            @for(category of categories; track $index) {
+                                <option [value]="category.id">{{ category.name }}</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn my-btn-cancel" data-bs-dismiss="modal" #closeBtn>Cancel</button>
+                        <button type="submit" class="btn my-btn-success">Save Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
