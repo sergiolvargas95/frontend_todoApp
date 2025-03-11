@@ -33,6 +33,14 @@
     }
 }
 
+.task-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 300px;
+  display: block;
+}
+
 .task-checkbox input[type="checkbox"] {
     appearance: none; 
     width: 20px;
